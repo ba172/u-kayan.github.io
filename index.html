@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة رئيسية</title>
+    <title>مؤقت العد التنازلي</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>مرحبًا بك في موقعي!</h1>
-    <?php include 'home.php'; ?>
+    <div>
+        <h1>الموقع تحت الصيانة</h1>
+        <p>يتبقى: <span id="timer">24:00:00</span></p>
+    </div>
+
+    <script>
+        let timeLeft = 24 * 60 * 60; // 24 ساعة بالثواني
+        const timerElement = document.getElementById("timer");
+
+        function updateTimer() {
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+            const seconds = timeLeft % 60;
+            timerElement.innerText = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            timeLeft--;
+
+            if (timeLeft < 0) {
+                clearInterval(timerInterval);
+                timerElement.innerText = "الموقع الآن جاهز للاستخدام!";
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
 </body>
 </html>
