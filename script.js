@@ -1,9 +1,7 @@
-// حساب عدد الأيام
+// حساب عدد الأيام المتبقية
 const today = new Date();
-const startOfWeek = new Date(today);
-startOfWeek.setDate(today.getDate() - today.getDay()); // بداية الأسبوع (الأحد)
-const endOfWeek = new Date(startOfWeek);
-endOfWeek.setDate(startOfWeek.getDate() + 7); // نهاية الأسبوع
+const endOfMaintenance = new Date(today);
+endOfMaintenance.setDate(today.getDate() + 7); // نهاية الصيانة بعد 7 أيام
 
-const daysRemaining = Math.ceil((endOfWeek - today) / (1000 * 60 * 60 * 24));
+const daysRemaining = Math.ceil((endOfMaintenance - today) / (1000 * 60 * 60 * 24));
 document.getElementById('days').textContent = daysRemaining;
