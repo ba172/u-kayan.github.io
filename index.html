@@ -4,44 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مؤسسة كيان المتحدة للمقاولات</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            color: #333;
-        }
-        .countdown {
-            font-size: 24px;
-            margin: 20px 0;
-        }
-        .contact {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>مؤسسة كيان المتحدة للمقاولات</h1>
-    <div class="countdown">
-        <p>الموقع سوف يعود للعمل خلال يومين.</p>
-        <p>اليوم: <span id="days">0</span></p>
+    <div class="container">
+        <h1>مؤسسة كيان المتحدة للمقاولات</h1>
+        <div class="countdown">
+            <p>الموقع سوف يعود للعمل خلال يومين.</p>
+            <p>اليوم: <span id="days">0</span></p>
+        </div>
+        <div class="contact">
+            <p>للمزيد من المعلومات، يرجى التواصل عبر البريد الإلكتروني:</p>
+            <p><a href="mailto:admin@u-cayan.sa">admin@u-cayan.sa</a></p>
+        </div>
     </div>
-    <script>
-        // حساب عدد الأيام
-        const today = new Date();
-        const startOfWeek = new Date(today);
-        startOfWeek.setDate(today.getDate() - today.getDay()); // بداية الأسبوع (الأحد)
-        const endOfWeek = new Date(startOfWeek);
-        endOfWeek.setDate(startOfWeek.getDate() + 7); // نهاية الأسبوع
-
-        const daysRemaining = Math.ceil((endOfWeek - today) / (1000 * 60 * 60 * 24));
-        document.getElementById('days').textContent = daysRemaining;
-    </script>
-    <div class="contact">
-        <p>للمزيد من المعلومات، يرجى التواصل عبر البريد الإلكتروني:</p>
-        <p><a href="mailto:admin@u-cayan.sa">admin@u-cayan.sa</a></p>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
